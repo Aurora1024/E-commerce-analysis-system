@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>商品管理 </title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/graph.css" />
+
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="css/custom.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300,300italic' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+
+    <script type="text/javascript" src="/static/js/modernizr.custom.04022.js"></script>
+    <style>.ie-note-1{display:block;} .main{display:none;}</style>
+    <![endif]-->
+    <!--[if IE 9]><style>.ie-note-2{display:block;}</style><![endif]-->
+  </head>
+
+  <body class="nav-md" ng-app="myApp" ng-controller="siteCtrl">
+    <div class="container body">
+      <div class="main_container">
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <header>
+
+            <!-- MENU BLOCK -->
+            <div class="menu_block">
+
+              <!-- CONTAINER -->
+              <div class="container_cc clearfix">
+
+                <!-- LOGO -->
+                <div class="logo pull-left">
+                  <a href="index.html" ><span class="b1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data analysis</span><span class="b5">for annual sale</span></a>
+                </div><!-- //LOGO -->
+
+                <!-- SEARCH FORM -->
+
+                <!-- MENU -->
+                <div class="pull-right">
+                  <nav class="navmenu center">
+                    <ul>
+                      <li class="first scroll_btn"><a href="dashboard2.html" >Home</a></li>
+                      <li class="scroll_btn"><a href="showByStyle.html" >Category</a></li>
+                      <li class="scroll_btn"><a href="produtcs.html" >Products</a></li>
+                      <li class="scroll_btn"><a href="manage.html" >Manage</a></li>
+                      <li class="active  scroll_btn last"><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                    </ul>
+                  </nav>
+                </div><!-- //MENU -->
+              </div><!-- //MENU BLOCK -->
+            </div><!-- //CONTAINER -->
+          </header>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>商品管理</h3>
+              </div>
+
+              <div class="title_right">
+
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <form method="get" id="search_form" >
+
+                    <div class="input-group">
+
+                      <input type="text" class="form-control" id="code" placeholder="商品编号">
+                      <span class="input-group-btn">
+                      <button class="btn btn-default" type="submit" ng-click="form_query()">搜索</button>
+                    </span>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="clearfix"></div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>新增商品</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">商品编号 <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="number" required="required" class="form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">商品名称 <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="name" name="name" required="required" class="form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">商品类别 <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="category" name="category" required="required" class="form-control col-md-7 col-xs-12">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="price" class="control-label col-md-3 col-sm-3 col-xs-12">商品价格</label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input id="price" class="form-control col-md-7 col-xs-12" type="text" name="price">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inventory" class="control-label col-md-3 col-sm-3 col-xs-12">商品库存</label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input id="inventory" class="form-control col-md-7 col-xs-12" type="text" name="inventory">
+                      </div>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                      <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button class="btn btn-primary" type="button">取消</button>
+                        <button class="btn btn-primary" type="reset">重置</button>
+                        <button type="submit" class="btn btn-success" ng-click="form_submit()">提交</button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+
+              <div class="x_panel">
+                <div class="x_content">
+                  <div class="x_title">
+                    <h2>编辑商品&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h2>
+                    <div class="btn-group  btn-group-sm select-right">
+                      <button class="btn btn-default" type="button" ng-click="mydelete()" >删除</button>
+                      <button class="btn btn-default" type="button" id="edit" href="#" >编辑</button>
+                    </div>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div>
+                      <table class="table table-striped">
+                        <thead>
+
+                        <tr>
+                          <th>商品编号</th>
+                          <th>商品名称</th>
+                          <th>商品类别</th>
+                          <th>商品价格</th>
+                          <th>商品库存</th>
+                          <th>商品总销量</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <th>{{code}}</th>
+                          <th>{{product}}</th>
+                          <th>{{category}}</th>
+                          <th>{{price}}</th>
+                          <th>{{inventory}}</th>
+                          <th>{{sales}}</th>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="vendors/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="vendors/nprogress/nprogress.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="js/custom.min.js"></script>
+    <script src="vendors/angular/angular.js"></script>
+    <script src="vendors/angular/angular-route.js"></script>
+    <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+    <script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+    <script src="https://img.hcharts.cn/highcharts/modules/oldie.js"></script>
+    <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+  </body>
+</html>
+<script type="text/javascript">
+    var code;
+    var statu = 0;
+    var edit = document.getElementById('edit');
+    var item = document.getElementsByTagName('th');
+    var item_length = item.length-1;
+    var item_value = new Array(item_length);
+
+    for(i = 0; i < item_length; i++){
+      item_value[i] = item[i].innerHTML;
+    }
+
+    var app = angular.module('myApp', []);
+    app.controller('siteCtrl', function($scope, $http) {
+
+        var product ;
+        var category ;
+        var price ;
+        var inventory ;
+
+
+        $scope.form_query = function () {
+            code = document.getElementById("code").value;
+            $http.get("http://localhost:8888/product/search?code=" + code)
+                .then(function (response) {
+                    $scope.code = response.data.data.product_id;
+                    $scope.product = response.data.data.product;
+                    $scope.category = response.data.data.category;
+                    $scope.price = response.data.data.price;
+                    $scope.inventory = response.data.data.inventory;
+                    $scope.sales = response.data.data.product_sales;
+                    alert(response.data.data.product_id);
+                    product = response.data.data.product;
+                    category = response.data.data.category;
+                    price = response.data.data.price;
+                    inventory = response.data.data.inventory;
+                });
+            alert(code);
+
+        };
+
+
+
+            $scope.mydelete = function () {
+            code = document.getElementById("code").value;
+            $http.get("http://localhost:8888/product/delete?code=" + code)
+                .then(function (response) {
+                    $scope.code = '';
+                    $scope.product = '';
+                    $scope.category = '';
+                    $scope.price = '';
+                    $scope.inventory = '';
+                    $scope.sales = '';
+                    alert("删除商品成功！");
+                });
+
+        };
+
+        $scope.form_submit = function () {
+            var product_id = document.getElementById("number").value;
+            var name = document.getElementById("name").value;
+            var category = document.getElementById("category").value;
+            var price = document.getElementById("price").value;
+            var  inventory = document.getElementById("inventory").value;
+            $http.get("http://localhost:8888/product/insert?product_id=" + product_id + "&product=" + name +"&category=" + category + "&price=" + price+ "&inventory=" + inventory)
+                .then(function (response) {
+                    alert("新增商品成功！")
+                });
+        };
+
+      edit.onclick =function(){
+        if(statu === 0){
+          edit.innerHTML= '保存';
+            item[7].innerHTML = '<input type="txt" class="item_input" value="'+product+'">';
+            item[8].innerHTML = '<input type="txt" class="item_input" value="'+category+'">';
+            item[9].innerHTML = '<input type="txt" class="item_input" value="'+price+'">';
+            item[10].innerHTML = '<input type="txt" class="item_input" value="'+inventory+'">';
+
+          //for(i = 7; i < item_length; i++){
+            //item[i].innerHTML = '<input type="txt" class="item_input" value="'+item_value[i]+'">';
+          //}
+          statu = 1;
+        }else{
+          edit.innerHTML= '编辑';
+          var item_input = document.getElementsByClassName('item_input');
+          for(i = 7; i < item_length; i++){
+            item_value[i] = item_input[i-7].value;
+          }
+          for(i = 7; i < item_length; i++){
+            item[i].innerHTML = item_value[i];
+          }
+          var newname =  item_value[7];
+            alert(newname);
+          var newcategory =  item_value[8];
+          alert(newcategory);
+          var newprice =  item_value[9];
+          alert(newprice);
+          var newinventory =  item_value[10];
+          alert(newinventory);
+          $http.get("http://localhost:8888/product/index?product_id=" + code+ "&product=" + newname +"&category=" + newcategory + "&price=" + newprice+ "&inventory=" + newinventory)
+                  .then(function (response) {
+                    alert("修改成功！")
+                  });
+          statu = 0
+        }
+        return false;
+      }
+
+
+
+    });
+
+
+
+
+
+
+
+</script>
